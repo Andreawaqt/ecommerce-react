@@ -1,6 +1,6 @@
 function ShopNow() {
     const handleClick = () => {
-        window.location.href = "/productos";
+        window.location.href = "/Productos";
     }
     console.log ("Shop Now")
 
