@@ -5,9 +5,11 @@ function ShopNow() {
     console.log ("Shop Now")
 
     return (
-        <button onClick={handleClick}>
+        <div className="shopnow-container">
+            <button className="shop-now" onClick={handleClick}>
             Shop Now
-        </button>
+            </button>
+        </div>
     );
 }
 
