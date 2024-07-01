@@ -11,7 +11,7 @@ class ProductosController {
         console.log("fetch", this.apiURL);
 let response;
         try {
-             response = await fetch(this.apiUrl, {
+             response = await fetch(this.apiURL, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -19,13 +19,10 @@ let response;
                 }
             });
         } catch (error) {
-            console.log("ha petat", error)
             return []
         }
         
-        console.log(response)
         const data = await response.json();
-        console.log(data);
         return data.list;
     }
 
