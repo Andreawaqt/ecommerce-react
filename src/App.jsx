@@ -6,14 +6,13 @@ function App() {
   const [edicion, setEdicion] = useState(false);
   return (
     <>
-    <Hero></Hero>
+    <Hero />
       <div className="container">
         <header>
           
         </header>
       </div>
       <Productos edicion={edicion}setEdicion={setEdicion}></Productos>
-      <Outlet />
     </>
   );
 }
