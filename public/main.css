@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'GlacialIndifference';
+  src: url('/fonts/GlacialIndifference.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root{
+  --primary-color: #fafafa;
+  --background-color: #ebdbcb;
+  --accent-color: #e0835b;
+  --color-dark: #292929;
+  --secondary-color: #82abc6;
+  --primary-text: 'GlacialIndifference', sans-serif;
+}
+p{
+  font-family: var(--primary-text);
+} 

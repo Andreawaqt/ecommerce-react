@@ -1,9 +1,7 @@
-function Hero() {
+function ShopNow() {
     return (
         <>
-
         </>
     );
 }
-
-export default Hero;
+export default ShopNow;
