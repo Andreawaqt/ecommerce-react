@@ -6,7 +6,7 @@ function Shop() {
       <div className="margin-top">
         <div className="row">
           <div className="col-lg-3 test"></div>
-          <div className="col-lg-9 d-flex justify-content-start flex-wrap">
+          <div className="col-lg-9 productos-container">
             <Productos/>
           </div>
         </div>
