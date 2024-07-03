@@ -21,7 +21,6 @@
   --primary-text: 'GlacialIndifference', sans-serif;
   --title-text: 'Lovelo', sans-serif;
 }
-
 body{
   background-color: var(--background-color);
   overflow: hidden;
@@ -34,7 +33,6 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-
 }
 
 .absolute{
@@ -111,18 +109,5 @@ width: 100%;
 height: 100vh;
 }
 #productos{
-  height: 100vh;
-  width: 100%;
-  padding-top: 20vh;
-}
-
-.productos-container {
-  -ms-overflow-style: none; /* Oculta la barra de scroll en Internet Explorer y Edge */
-  scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
-  overflow: auto !important;
-  height: 80vh;
-  white-space: nowrap;
-}
-.productos-container::-webkit-scrollbar {
-  display: none; /* Oculta la barra de scroll en navegadores basados en WebKit (Chrome, Safari, Opera) */
+  padding-top: 20vh
 }
