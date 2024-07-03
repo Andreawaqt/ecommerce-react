@@ -72,3 +72,26 @@ body{
   font-size: 10vh;
   animation: moveUpDown 2s infinite;
 }
+
+.shopnow-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.shop-now {
+  background-color: #e0835b;
+  color: #fafafa;
+  font-family: var(--primary-text);
+  font-size: 2.5vh;
+  padding: 0.5vh 2vh;
+  border-radius: 2px;
+  border-color: transparent;
+}
+
+.shop-now:hover {
+  background-color: #82abc6;
+  color: #292929;
+  
+}
