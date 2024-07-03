@@ -17,7 +17,7 @@ class ProductosController {
             });
         
         const data = await response.json();
-        console.log(data.list);
+
         return data.list;
     }
     async getProducto(id) {
@@ -30,7 +30,7 @@ class ProductosController {
             }
         });
         const data = await response.json();
-        console.log(data);
+
         return data.list;
     }
     async editarProducto(id, data) {

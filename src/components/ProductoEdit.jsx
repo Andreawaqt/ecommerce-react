@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function ProductoEdit(productId) {
 
-            const productosController = new ProductosController();
+    const productosController = new ProductosController();
 
 
     let [formData, setFormData] = useState({
