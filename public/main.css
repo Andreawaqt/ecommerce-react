@@ -23,7 +23,7 @@
 }
 body{
   background-color: var(--background-color);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .hero{
   min-height: 70vh;

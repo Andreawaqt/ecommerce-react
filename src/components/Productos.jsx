@@ -1,17 +1,31 @@
-import ProductosController from "../controllers/ProductosController.js";
 import { useState, useEffect } from "react";
-
+import axios from 'axios';
+import { Card, Button } from 'react-bootstrap';
+import ProductosController from "../controllers/ProductosController";
 function Productos({ edicion, setEdicion }) {
   const [productos, setProductos] = useState([]);
 
-  async function getdata() {
+
+  async function getProductos() {
     const productosController = new ProductosController();
-    let data = await productosController.getProductos();
-    setProductos(data);
+    const recs = await productosController.getProductos();
+    if (recs.length) {
+      setProductos(recs);
+    } else {
+      console.log(recs)
+    }
   }
 
+
   useEffect(() => {
-    getdata();
+    getProductos();
+    // axios.get ('https://app.nocodb.com/api/v2/tables/m920zf4jt60rlt5/records?limit=25&shuffle=0&offset=0')
+    //   .then (response => {
+    //     setProductos (response.data.list);
+    //   })
+    //   .catch(error => {
+    //     console.error('Error fetching data:', error);
+    //   });
   }, []);
 
   const handleEdicion = () => {
@@ -23,9 +37,9 @@ function Productos({ edicion, setEdicion }) {
     return (
       <>
         <form method="post">
-        <label for="id">Id</label>
-        <input type="text" id="id" name="id" placeholder="Id del producto" required />
-          <label for="nombre">Nombre</label>
+          <label htmlFor="id">Id</label>
+          <input type="text" id="id" name="id" placeholder="Id del producto" required />
+          <label htmlFor="nombre">Nombre</label>
           <input
             type="text"
             id="nombre"
@@ -33,7 +47,7 @@ function Productos({ edicion, setEdicion }) {
             placeholder="Nombre del producto"
             required
           />
-          <label for="tipo">Tipo</label>
+          <label htmlFor="tipo">Tipo</label>
           <input
             type="text"
             id="tipo"
@@ -41,7 +55,7 @@ function Productos({ edicion, setEdicion }) {
             placeholder="Tipo del producto"
             required
           />
-          <label for="categoria">Categoria</label>
+          <label htmlFor="categoria">Categoria</label>
           <input
             type="text"
             id="categoria"
@@ -49,7 +63,7 @@ function Productos({ edicion, setEdicion }) {
             placeholder="Categoria del producto"
             required
           />
-          <label for="precio">Precio</label>
+          <label htmlFor="precio">Precio</label>
           <input
             type="number"
             id="precio"
@@ -63,16 +77,25 @@ function Productos({ edicion, setEdicion }) {
     );
   }
   return (
-    <>
-      {productos.map((producto) => (
-        <div id={producto.Id} key={producto.Id} onClick={handleEdicion}>
-          <p>{producto.Nombre}</p>
-          <p>{producto.Tipo}</p>
-          <p>{producto.Categoria}</p>
-          <p>{producto.Precio}</p>
-        </div>
-      ))}
-    </>
+    <div className="container">
+      <div className="row">
+        {productos.map((producto) => (
+          <div className="col-md-4" key={producto.Id}>
+            <Card className="mb-4">
+              <Card.Img variant="top" src={producto.Fotografias[0].signedUrl} />
+              <Card.Body>
+                <Card.Title>{producto.Nombre}</Card.Title>
+                <Card.Text> {producto.Tipo}</Card.Text>
+                <Card.Text>{producto.Categoria}</Card.Text>
+                <Card.Text>{producto.Precio}€</Card.Text>
+                <Button onClick={handleEdicion}>Editar</Button>
+              </Card.Body>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 export default Productos;
+
