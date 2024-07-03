@@ -23,8 +23,14 @@ function Productos({ edicion, setEdicion }) {
     return (
       <>
         <form method="post">
-        <label for="id">Id</label>
-        <input type="text" id="id" name="id" placeholder="Id del producto" required />
+          <label for="id">Id</label>
+          <input
+            type="text"
+            id="id"
+            name="id"
+            placeholder="Id del producto"
+            required
+          />
           <label for="nombre">Nombre</label>
           <input
             type="text"
@@ -65,11 +71,13 @@ function Productos({ edicion, setEdicion }) {
   return (
     <>
       {productos.map((producto) => (
-        <div id={producto.Id} key={producto.Id} onClick={handleEdicion}>
-          <p>{producto.Nombre}</p>
-          <p>{producto.Tipo}</p>
-          <p>{producto.Categoria}</p>
-          <p>{producto.Precio}</p>
+        <div className="col-lg-4 py-2 d-block">
+          <div id={producto.Id} key={producto.Id} onClick={handleEdicion}>
+            <p>{producto.Nombre}</p>
+            <p>{producto.Tipo}</p>
+            <p>{producto.Categoria}</p>
+            <p>{producto.Precio}</p>
+          </div>
         </div>
       ))}
     </>
