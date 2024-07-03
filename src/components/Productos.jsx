@@ -1,7 +1,8 @@
 import ProductosController from "../controllers/ProductosController.js";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
-function Productos() {
+function Productos({ edicion, setEdicion }) {
+  const [productos, setProductos] = useState([]);
 
   async function getdata() {
     const productosController = new ProductosController();
@@ -13,7 +14,60 @@ function Productos() {
     getdata();
   }, []);
 
-  
+  const handleEdicion = () => {
+    setEdicion(true);
+    console.log(edicion);
+  };
+
+  if (edicion) {
+    return (
+      <>
+        <form method="post">
+          <label for="id">Id</label>
+          <input
+            type="text"
+            id="id"
+            name="id"
+            placeholder="Id del producto"
+            required
+          />
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Nombre del producto"
+            required
+          />
+          <label for="tipo">Tipo</label>
+          <input
+            type="text"
+            id="tipo"
+            name="tipo"
+            placeholder="Tipo del producto"
+            required
+          />
+          <label for="categoria">Categoria</label>
+          <input
+            type="text"
+            id="categoria"
+            name="categoria"
+            placeholder="Categoria del producto"
+            required
+          />
+          <label for="precio">Precio</label>
+          <input
+            type="number"
+            id="precio"
+            name="precio"
+            placeholder="Precio del producto"
+            required
+          />
+          <button type="submit">Enviar</button>
+        </form>
+      </>
+    );
+  }
   return (
     <>
       {productos.map((producto) => (
