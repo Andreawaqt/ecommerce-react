@@ -29,7 +29,7 @@ body{
   min-height: 70vh;
   width: auto;
   background-image: url('/img/hero.jpg');
-  background-position:center;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
