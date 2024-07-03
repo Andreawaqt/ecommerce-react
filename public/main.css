@@ -88,6 +88,7 @@ body{
   padding: 0.5vh 2vh;
   border-radius: 2px;
   border-color: transparent;
+  transition: 0.5s;
 }
 
 .shop-now:hover {
