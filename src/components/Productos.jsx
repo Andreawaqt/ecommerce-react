@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import { Card, Button } from 'react-bootstrap';
-import ProductosController from "../controllers/ProductosController";
-function Productos({ edicion, setEdicion }) {
-  const [productos, setProductos] = useState([]);
+import ProductosController from "../controllers/ProductosController.js";
+import { useEffect } from "react";
+
+function Productos() {
 
 
   async function getProductos() {
@@ -21,54 +20,7 @@ function Productos({ edicion, setEdicion }) {
 
   }, []);
 
-  const handleEdicion = () => {
-    setEdicion(true);
-    console.log(edicion);
-  };
-
-  if (edicion) {
-    return (
-      <>
-        <form method="post">
-          <label htmlFor="id">Id</label>
-          <input type="text" id="id" name="id" placeholder="Id del producto" required />
-          <label htmlFor="nombre">Nombre</label>
-          <input
-            type="text"
-            id="nombre"
-            name="nombre"
-            placeholder="Nombre del producto"
-            required
-          />
-          <label htmlFor="tipo">Tipo</label>
-          <input
-            type="text"
-            id="tipo"
-            name="tipo"
-            placeholder="Tipo del producto"
-            required
-          />
-          <label htmlFor="categoria">Categoria</label>
-          <input
-            type="text"
-            id="categoria"
-            name="categoria"
-            placeholder="Categoria del producto"
-            required
-          />
-          <label htmlFor="precio">Precio</label>
-          <input
-            type="number"
-            id="precio"
-            name="precio"
-            placeholder="Precio del producto"
-            required
-          />
-          <button type="submit">Enviar</button>
-        </form>
-      </>
-    );
-  }
+  
   return (
     <div className="container">
       <div className="row">
