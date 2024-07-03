@@ -4,7 +4,7 @@ import { Button, Row, Container, Form, Col, Nav, Navbar } from "react-bootstrap"
 function Header() {
     return (
         <>
-            <Container className="pt-5 pb-5">
+            <Container className="pt-5 pb-5 sticky-top">
                 <Row className="d-flex align-items-center">
                     <Col><div className="d-inline-block"><img src="https://placehold.co/50x50" alt="Logo" /></div></Col>
                     <Col md={{ span: 3 }} className="d-none d-md-block"></Col>
