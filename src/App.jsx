@@ -15,10 +15,9 @@ function App() {
     <Header />
         <Hero />
         <ShopNow />
-
         <Shop/>
         <About/>
-      <Productos edicion={edicion}setEdicion={setEdicion}></Productos>
+     
     </>
   );
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import ProductosController from "../controllers/ProductosController";
 function Productos({ edicion, setEdicion }) {
@@ -19,13 +18,7 @@ function Productos({ edicion, setEdicion }) {
 
   useEffect(() => {
     getProductos();
-    // axios.get ('https://app.nocodb.com/api/v2/tables/m920zf4jt60rlt5/records?limit=25&shuffle=0&offset=0')
-    //   .then (response => {
-    //     setProductos (response.data.list);
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching data:', error);
-    //   });
+
   }, []);
 
   const handleEdicion = () => {
