@@ -136,7 +136,7 @@ height: 100vh;
 }
 
 .card-title {
-  font-family: var(--title-text);
+  font-family: var(--title-text) !important;
   font-size: 1.5rem;
   color: var(--color-dark);
 }
