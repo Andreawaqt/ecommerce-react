@@ -78,7 +78,7 @@ body{
   justify-content: center;
   align-items: center;
   margin-top: 2vh;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 
 .shop-now {
@@ -107,4 +107,7 @@ height: 100vh;
 background-color: #5bbfe0;
 width: 100%;
 height: 100vh;
+}
+#productos{
+  padding-top: 20vh
 }
