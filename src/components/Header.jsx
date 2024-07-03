@@ -14,7 +14,7 @@ function Header() {
                             <Navbar.Collapse id="basic-navbar-nav">
                                 <Nav className="ml-auto">
                                     <Nav.Link href="#home">HOME</Nav.Link>
-                                    <Nav.Link href="#shop">SHOP</Nav.Link>
+                                    <Nav.Link href="#productos">SHOP</Nav.Link>
                                     <Nav.Link href="#about">ABOUT</Nav.Link>
                                     <Nav.Item className="d-md-none">
                                         <div className="d-inline-block"><img src="https://placehold.co/50x50" alt="Carrito" /></div>
