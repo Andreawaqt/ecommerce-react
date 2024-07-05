@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
-import Productos from './Productos';
+import React, { useState } from "react";
+import Productos from "./Productos";
 
 function Shop() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterClass, setFilterClass] = useState('');
-  const [filterPrice, setFilterPrice] = useState({
+  const [nombre, setSearchTerm] = useState("");
+  const [tipo, setFilterClass] = useState("");
+  const [categoria, setCategoria] = useState("");
+
+  const [precio, setFilterPrice] = useState({
     min: 0,
-    max: Infinity,
+    max: 1000,
   });
 
-  const handleSearch = (e) => {
+  const handleNombre = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleFilterClass = (e) => {
+  const handleTipo = (e) => {
     setFilterClass(e.target.value);
+  };
+
+  const handleCategoria = (e) => {
+    setCategoria(e.target.value);
   };
 
   const handleFilterPrice = (e, type) => {
     const value = parseInt(e.target.value, 10);
     setFilterPrice((prevState) => ({
       ...prevState,
-      [type]: isNaN(value) ? '' : value,
+      [type]: isNaN(value) ? "" : value,
     }));
   };
 
@@ -34,27 +40,53 @@ function Shop() {
               <input
                 type="text"
                 placeholder="Buscar productos..."
-                value={searchTerm}
-                onChange={handleSearch}
+                value={nombre}
+                onChange={handleNombre}
                 className="form-control mb-3"
               />
               <select
-                value={filterClass}
-                onChange={handleFilterClass}
+                value={tipo}
+                onChange={handleTipo}
                 className="form-control mb-3"
               >
-                <option value="">Busca un tipo de producto</option>
-                <option value="clase1">Clase 1</option>
-                <option value="clase2">Clase 2</option>
-                {/* Agrega más opciones de clase aquí */}
+                <option value="">Busca la tipo de un producto</option>
+                <option value="Camisetas">Camisetas</option>
+                <option value="Tops y bodies">Tops y bodies</option>
+                <option value="Camisas y blusas">Camisas y blusas</option>
+                <option value="Vestidos">Vestidos</option>
+                <option value="Petos y monos">Petos y monos</option>
+                <option value="Faldas">Faldas</option>
+                <option value="Jeans y shorts">Jeans y shorts</option>
+                <option value="Cazadoras y chaquetas">
+                  Cazadoras y chaquetas
+                </option>
+                <option value="Sudaderas">Sudaderas</option>
+                <option value="Sandalias planas">Sandalias planas</option>
+                <option value="Faldas">Faldas</option>
+                <option value="Zapatillas">Zapatillas</option>
+                <option value="Bisuteria">Bisuteria</option>
+                <option value="Gafas de sol">Gafas de sol</option>
+                <option value="Gorras y gorros">Gorras y gorros</option>
               </select>
+              <select
+                value={categoria}
+                onChange={handleCategoria}
+                className="form-control mb-3"
+              >
+                <option value="">Selecciona una categoría</option>
+                <option value="Ropa">Ropa</option>
+                <option value="Zapatos">Zapatos</option>
+                <option value="Accesorios">Accesorios</option>
+
+              </select>
+
               <div className="price-filter mb-3">
                 <label htmlFor="min-price">Precio mínimo:</label>
                 <input
                   type="number"
                   id="min-price"
-                  value={filterPrice.min}
-                  onChange={(e) => handleFilterPrice(e, 'min')}
+                  value={precio.min}
+                  onChange={(e) => handleFilterPrice(e, "min")}
                   className="form-control"
                 />
               </div>
@@ -63,19 +95,15 @@ function Shop() {
                 <input
                   type="number"
                   id="max-price"
-                  value={filterPrice.max}
-                  onChange={(e) => handleFilterPrice(e, 'max')}
+                  value={precio.max}
+                  onChange={(e) => handleFilterPrice(e, "max")}
                   className="form-control"
                 />
               </div>
             </div>
           </div>
           <div className="col-lg-9 productos-container">
-            <Productos
-              searchTerm={searchTerm}
-              filterClass={filterClass}
-              filterPrice={filterPrice}
-            />
+            <Productos nombre={nombre} tipo={tipo} precio={precio} categoria={categoria} />
           </div>
         </div>
       </div>

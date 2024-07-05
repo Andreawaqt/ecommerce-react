@@ -2,12 +2,23 @@ import { useState, useEffect } from "react";
 import { Card, Button, Form } from 'react-bootstrap';
 import ProductosController from "../controllers/ProductosController";
 
-function Productos() {
+function Productos({ nombre, tipo, precio, categoria }) {
 
   const [edicion, setEdicion] = useState(false);
   const [productos, setProductos] = useState([]);
   const [productoEnEdicion, setProductoEnEdicion] = useState(null);
 
+  const filteredProductos = productos.filter((producto) => {
+    const nombreLowerCase = producto.Nombre.toLowerCase();
+    const nombreBusquedaLowerCase = (nombre || '').toLowerCase();
+    const nombreMatch = nombreBusquedaLowerCase ? nombreLowerCase.includes(nombreBusquedaLowerCase) : true;
+    const tipoMatch = tipo ? producto.Tipo === tipo : true;
+    const categoriaMatch = categoria ? producto.Categoria === categoria : true;
+    const precioMatch = precio ? producto.Precio >= precio.min && producto.Precio <= precio.max : true;
+    const filtro = nombreMatch && tipoMatch && precioMatch && categoriaMatch;
+
+    return filtro;
+  });
 
 
   async function getProductos() {
@@ -57,7 +68,7 @@ function Productos() {
   return (
     <div className="container">
       <div className="row">
-      {productos.map((producto) => (
+      {filteredProductos.map((producto) => (
           <div className="col-md-4" key={producto.Id}>
             {edicion && productoEnEdicion?.Id === producto.Id ? (
               <Card className="mb-4">

@@ -8,7 +8,7 @@ class ProductosController {
     }
     async getProductos() {  
 
-            let response = await fetch(this.apiURL, {
+            let response = await fetch(`${this.apiURL}?limit=1000`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
