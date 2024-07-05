@@ -33,18 +33,38 @@ class ProductosController {
 
         return data.list;
     }
-    async editarProducto(id, data) {
+    async updateProducto(producto) {
+        const { Id, Nombre, Tipo, Categoria, Precio } = producto;
+    
+        const requestBody = {
+                "Id" : Id,
+                "Nombre" : Nombre,
+                "Tipo" : Tipo,
+                "Categoria" : Categoria,
+                "Precio" : Precio
 
-        let response = await fetch(`${this.apiURL}/${id}`, {
-            method: 'PUT',
+        };
+        console.log(requestBody);
+    
+        let response = await fetch(`${this.apiURL}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'xc-token': this.token
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(requestBody)
         });
-        const data2 = await response.json();
+    
+        const data = await response.json();
+    
+        if (response.ok) {
+            return data;
+        } else {
+            throw new Error(`Error al actualizar el producto: ${data.message}`);
+        }
     }
+    
+      
 
 
 }

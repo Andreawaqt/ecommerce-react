@@ -39,12 +39,19 @@ function Productos() {
     }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // ProductosController para guardar los cambios
-    setEdicion(false);
-    setProductoEnEdicion(null);
-    getProductos();
+  
+    const productosController = new ProductosController();
+  
+    try {
+      await productosController.updateProducto(productoEnEdicion);
+      setEdicion(false);
+      setProductoEnEdicion(null);
+      getProductos();
+    } catch (error) {
+      console.error('Error al actualizar el producto:', error);
+    }
   };
 
   return (
