@@ -9,15 +9,17 @@ import About from "./components/About.jsx";
 
 function App() {
 
+let [carritoArray, setCarrito] = useState([]);
+
   return (
     <>
     <div id="home"></div>
-    <Header />
+    <Header carritoArray={carritoArray} />
         <Hero />
         <ShopNow />
         <Shop/>
         <About/>
-        <Productos/>
+        <Productos setCarrito={setCarrito}/>
     </>
   );
 }

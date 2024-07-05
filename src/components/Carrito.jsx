@@ -1,25 +1,31 @@
-import { Dropdown, Container } from 'react-bootstrap';
+import { Offcanvas, Container, Button } from 'react-bootstrap';
+import { useState } from 'react';
 
-function Carrito() {
+function Carrito({carritoArray}) {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
 
     return (
         <Container className="d-inline-block">
-            <Dropdown >
-                <Dropdown.Toggle as="div" id="dropdown-custom-components">
-                    <img
-                        src="https://via.placeholder.com/50x50"
-                        alt="dropdown trigger"
-                        style={{ cursor: 'pointer' }}
-                    />
-                </Dropdown.Toggle>
+            <img
+                src="https://placehold.co/50x50"
+                alt="Carrito"
+                style={{ cursor: 'pointer' }}
+                onClick={handleShow}
+            />
 
-                <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Item 1</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Item 2</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Item 3</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
+            <Offcanvas show={show} onHide={handleClose} placement="end">
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Carrito</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    {carritoArray.map(e => <carritoCard nombre={e.nombre} cantidad={e.cantidad} precio={e.cantidad* e.precio}/>)}
+                </Offcanvas.Body>
+            </Offcanvas>
         </Container>
     )
 }
