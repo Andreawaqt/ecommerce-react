@@ -1,5 +1,6 @@
 import { Offcanvas, Container, Button } from 'react-bootstrap';
 import { useState } from 'react';
+import CarritoCard from './CarritoCard';
 
 function Carrito({carritoArray}) {
 
@@ -23,7 +24,7 @@ function Carrito({carritoArray}) {
                     <Offcanvas.Title>Carrito</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {carritoArray.map(e => <carritoCard nombre={e.nombre} cantidad={e.cantidad} precio={e.cantidad* e.precio}/>)}
+                    {carritoArray.map(e => <CarritoCard nombre={e.nombre} cantidad={e.cantidad} precio={e.cantidad* e.precio}/>)}
                 </Offcanvas.Body>
             </Offcanvas>
         </Container>
