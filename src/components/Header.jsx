@@ -1,4 +1,5 @@
 import { Button, Row, Container, Form, Col, Nav, Navbar } from "react-bootstrap";
+import Carrito from "./Carrito";
 
 
 function Header() {
@@ -17,7 +18,8 @@ function Header() {
                                     <Nav.Link href="#productos">SHOP</Nav.Link>
                                     <Nav.Link href="#about">ABOUT</Nav.Link>
                                     <Nav.Item className="d-md-none">
-                                        <div className="d-inline-block"><img src="https://placehold.co/50x50" alt="Carrito" /></div>
+                                        <Carrito />
+                                        {/* <div className="d-inline-block"><img src="https://placehold.co/50x50" alt="Carrito" /></div> */}
                                     </Nav.Item>
                                     <Nav.Item className="d-md-none">
                                         <div className="d-inline-block"><img src="https://placehold.co/50x50" alt="Clear carrito" /></div>
@@ -29,9 +31,10 @@ function Header() {
                     <Col md={{ span: 3 }} className="d-none d-md-block"></Col>
 
                     <Col className="d-none d-md-block">
-                        <div className="d-inline-block"><img src="https://placehold.co/50x50" alt="Carrito" /></div>
-
-                        <div className="d-inline-block"><img src="https://placehold.co/50x50" alt="Clear carrito" /></div>
+                        <div className="d-inline-flex align-items-center">
+                            <Carrito />
+                            <div className="d-inline-block ml-3"><img src="https://placehold.co/50x50" alt="Clear carrito" /></div>
+                        </div>
                     </Col>
 
                 </Row>
