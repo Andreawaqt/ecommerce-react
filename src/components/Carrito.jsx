@@ -24,7 +24,7 @@ function Carrito({carritoArray}) {
                     <Offcanvas.Title>Carrito</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
-                    {carritoArray.map(e => <CarritoCard nombre={e.nombre} cantidad={e.cantidad} precio={e.cantidad* e.precio}/>)}
+                    {/* {carritoArray.map(e => <CarritoCard nombre={e.nombre} cantidad={e.cantidad} precio={e.cantidad* e.precio}/>)} */}
                 </Offcanvas.Body>
             </Offcanvas>
         </Container>
